@@ -30,7 +30,18 @@ trait UserReferral
 		$new_model = new static();
 			return $new_model->where('referred_by',$this->affiliate_id);
 	}
-	
+    public function getAffilateId($affiliate_id = 0)
+    {
+        $new_model = new static();
+        if ($affiliate_id) {
+            return $new_model->where('affiliate_id', $affiliate_id)->first();
+
+        } else {
+
+            return $new_model->where('affiliate_id', $this->referred_by)->first();
+        }
+    }
+
 
     public static function scopeReferralExists(Builder $query, $referral)
     {
