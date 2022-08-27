@@ -107,6 +107,15 @@ If you want to change user model this method use (config/refferral.php)
  ...
 ```
 
+If you want to change ref code lenght this method use (config/refferral.php)
+```bash
+
+...
+   'referral_length' => 10,
+   ....
+
+```
+
 
 ## License
 
