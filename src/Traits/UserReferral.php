@@ -38,6 +38,15 @@ trait UserReferral
 
             $model->affiliate_id = self::generateReferral();
         });
+
+
+        static::updating(function ($model) {
+            if ($model->affiliate_id == null){
+
+                $model->affiliate_id = self::generateReferral();
+            }
+        });
+
     }
 
     protected static function generateReferral()
