@@ -28,7 +28,7 @@ trait UserReferral
 	
 	public function getAllReferral(){
 		$new_model = new static();
-		return $new_model->where('referred_by',$this->id);
+			return $new_model->where('referred_by',$this->affiliate_id);
 	}
 	
 
