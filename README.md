@@ -11,9 +11,13 @@ A Referral System With Laravel
 
 Via [Composer](https://getcomposer.org) to add the package to your project's dependencies:
 
+You can [click here](https://github.com/questocat/laravel-referral) to go to the original version
 ```bash
-$ composer require questocat/laravel-referral
+$ composer require benahmetcelik/laravel-referral
 ```
+
+
+
 
 First add service providers into the config/app.php
 
