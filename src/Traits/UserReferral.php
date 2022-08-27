@@ -19,6 +19,12 @@ trait UserReferral
 {
     public function getReferralLink()
     {
+		if($this->affiliate_id == null){
+		$this->update([
+		'affiliate_id'=>self::generateReferral()
+		]);
+		}
+		
         return url('/').'/?ref='.$this->affiliate_id;
     }
 
