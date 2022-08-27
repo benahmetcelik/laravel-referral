@@ -25,6 +25,12 @@ trait UserReferral
 		}
         return url('/').'/?ref='.$this->affiliate_id;
     }
+	
+	public function getAllReferral(){
+		$new_model = new static();
+		return $new_model->where('referred_by',$this->id)->get();
+	}
+	
 
     public static function scopeReferralExists(Builder $query, $referral)
     {
