@@ -19,28 +19,28 @@ trait UserReferral
 {
     public function getReferralLink()
     {
-		if($this->affiliate_id == null){
+        if ($this->affiliate_id == null) {
             $this->affiliate_id = self::generateReferral();
-	        $this->save();
-		}
-        return url('/').'/?ref='.$this->affiliate_id;
+            $this->save();
+        }
+        return url('/') . '/?ref=' . $this->affiliate_id;
     }
-	
-	public function getAllReferral(){
-		$new_model = new static();
-			return $new_model->where('referred_by',$this->affiliate_id);
-	}
-    public function getAffilateId($affiliate_id = 0)
+
+    public function getAllReferral()
     {
         $new_model = new static();
-        if ($affiliate_id) {
-            return $new_model->where('affiliate_id', $affiliate_id)->first();
-
-        } else {
-
-            return $new_model->where('affiliate_id', $this->referred_by)->first();
-        }
+        return $new_model->where('referred_by', $this->affiliate_id);
     }
+
+    public function getAffilateUser($column)
+    {
+            $user =app(config('referral.user_model'))::whereAffiliateId($this->referred_by)->first();
+            if ($user){
+                return $user->$column;
+            }
+           return null;
+    }
+
 
 
     public static function scopeReferralExists(Builder $query, $referral)
@@ -62,7 +62,7 @@ trait UserReferral
 
 
         static::updating(function ($model) {
-            if ($model->affiliate_id == null){
+            if ($model->affiliate_id == null) {
 
                 $model->affiliate_id = self::generateReferral();
             }
