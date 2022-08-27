@@ -1,11 +1,14 @@
 {
-    "name": "questocat/laravel-referral",
+    "name": "benahmetcelik/laravel-referral",
     "description": "A Referral System With Laravel",
     "keywords": ["referral", "referral-system", "affiliate-tracking"],
     "license": "MIT",
     "authors": [{
         "name": "questocat",
         "email": "zhengchaopu@gmail.com"
+    },{
+        "name": "benahmetcelik",
+        "email": "ben4hmetcelik@gmail.com"
     }],
     "require": {
         "php": ">=7.0"
