@@ -11,6 +11,10 @@ A Referral System With Laravel
 
 Via [Composer](https://getcomposer.org) to add the package to your project's dependencies:
 
+
+
+
+
 You can [click here](https://github.com/questocat/laravel-referral) to go to the original version
 ```bash
 $ composer require benahmetcelik/laravel-referral
@@ -94,6 +98,13 @@ Get the referral link:
 $user = App\User::findOrFail(1);
 
 {{ $user->getReferralLink() }}
+```
+If you want to change user model this method use (config/refferral.php)
+```bash
+...
+
+'user_model' => 'App\Custom\User\Model',
+ ...
 ```
 
 
